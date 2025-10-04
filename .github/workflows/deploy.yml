@@ -15,10 +15,8 @@ jobs:
       - name: Use Node.js 22
         uses: actions/setup-node@v5
         with:
-          node-version: 22
+          node-version: 22.15.1
       - run: |
-          whoami
-          nvm use 22.15.1
           node -v
           npm i
           npm run build

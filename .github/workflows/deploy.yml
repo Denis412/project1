@@ -17,5 +17,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: |
+          nvm use 22.15.1
           npm i
           npm run build

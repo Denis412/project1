@@ -1,0 +1,18 @@
+@use "../core";
+@use "sass:map";
+
+@each $name, $value in core.$spacing-scale {
+  .m-#{$name} { @include core.spacing("m", $name) }
+  .mx-#{$name} { @include core.spacing("mx", $name) }
+  .my-#{$name} { @include core.spacing("my", $name) }
+  .mt-#{$name} { @include core.spacing("mt", $name) }
+  .mb-#{$name} { @include core.spacing("mb", $name) }
+
+  .p-#{$name} { @include core.spacing("p", $name) }
+  .px-#{$name} { @include core.spacing("px", $name) }
+  .py-#{$name} { @include core.spacing("py", $name) }
+  .pt-#{$name} { @include core.spacing("pt", $name) }
+  .pb-#{$name} { @include core.spacing("pb", $name) }
+
+  .gap-#{$name} { @include core.spacing("gap", $name) }
+}

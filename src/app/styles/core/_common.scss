@@ -1,0 +1,7 @@
+@use "./mixins" as *;
+@use "./variables" as *;
+
+:root {
+  @include define-var(font-family, $font-family);
+  @include define-var(size, $font-size);
+}

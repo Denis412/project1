@@ -1,0 +1,52 @@
+@use "./variables" as *;
+@use "sass:map";
+
+$breakpoints: (
+        sm: 640px,
+        md: 768px,
+        lg: 1024px,
+        xl: 1280px
+);
+
+@mixin define-var($name, $value) {
+  --#{$name}: #{$value};
+}
+
+@mixin media($breakpoint) {
+  $size: map-get($breakpoints, $breakpoint);
+  @if $size {
+    @media (min-width: $size) {
+      @content;
+    }
+  } @else {
+    @warn "Неизвестный брейкпоинт: #{$breakpoint}";
+  }
+}
+
+@mixin spacing($property, $key) {
+  $value: map.get($spacing-scale, $key);
+
+  @if $value == null {
+    @error "Spacing key `#{$key}` not found in \$spacing-scale.";
+  }
+
+  @if $property == "m" {
+    margin: $value;
+  } @else if $property == "p" {
+    padding: $value;
+  } @else if $property == "gap" {
+    gap: $value;
+  } @else if $property == "mx" {
+    margin-left: $value;
+    margin-right: $value;
+  } @else if $property == "my" {
+    margin-top: $value;
+    margin-bottom: $value;
+  } @else if $property == "px" {
+    padding-left: $value;
+    padding-right: $value;
+  } @else if $property == "py" {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+}

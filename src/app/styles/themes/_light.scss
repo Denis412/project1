@@ -1,0 +1,14 @@
+@use "../core";
+
+$theme-light: (
+        color-bg: #fff,
+        color-text: #000,
+        color-primary: #3b82f6,
+        color-border: #e5e7eb,
+);
+
+:root[data-theme="light"] {
+  @each $name, $value in $theme-light {
+    @include core.define-var($name, $value);
+  }
+}

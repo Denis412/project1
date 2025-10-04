@@ -1,0 +1,14 @@
+@use "../core";
+
+$theme-dark: (
+        color-bg: #000,
+        color-text: #fff,
+        color-primary: #3b82f6,
+        color-border: #e5e7eb,
+);
+
+:root[data-theme="dark"] {
+  @each $name, $value in $theme-dark {
+    @include core.define-var($name, $value);
+  }
+}

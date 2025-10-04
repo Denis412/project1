@@ -1,6 +1,6 @@
 <template>
   <app-page>
-    Index
+    Index Page 1
 
     <theme-switcher />
   </app-page>
